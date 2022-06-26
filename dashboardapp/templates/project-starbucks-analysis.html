@@ -1,0 +1,172 @@
+<head>
+    <title>Starbucks Analysis</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../static/css/sub_style.css">
+    <link href="../static/img/R3.ico" rel="icon">
+</head>
+
+<body>
+<div id="wrapper">
+    <div class="overlay"></div>
+  
+    <!-- Sidebar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+      <ul class="nav sidebar-nav">
+        <li class="sidebar-brand">
+          <a href="/">
+            Rain Home
+          </a>
+        </li>
+        <li>
+          <a href="/starbucks-main"><i class="fa fa-fw fa-home"></i>Back to Main</a>
+        </li>
+        <li>
+          <a href="#task1"><i class="fa fa-fw fa-file-o"></i> Task 1</a>
+        </li>
+        <li>
+          <a href="#task2"><i class="fa fa-fw fa-file-o"></i> Task 2</a>
+        </li>
+        <!--
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-plus"></i> Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li class="dropdown-header">Dropdown heading</li>
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li><a href="#">Separated link</a></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>-->
+      </ul>
+    </nav>
+    <!-- /#sidebar-wrapper -->
+  
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+      <button type="button" class="hamburger is-closed animated fadeInLeft" data-toggle="offcanvas">
+        <span class="hamb-top"></span>
+        <span class="hamb-middle"></span>
+        <span class="hamb-bottom"></span>
+      </button>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h1 class="page-header" id="title">Starbucks Analysis</h1>
+            <!--task1-->
+            <h2 id="task1">Task1</h2>
+            <p>我们希望获取完成订单的客户信息，查看男女，年龄，收入的分布</p>
+            
+            <!-- Plot 1 -->
+            <h4>Profile Age Distribution</h4>
+            <div id='chart1' class='chart'>
+              <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+              <script>
+                  var graphs = {{graph1json | safe}};
+                  Plotly.plot('chart1',graphs,{});
+              </script>
+            </div>
+            <br>
+            <!--end plot-->
+            <p>通过上图观察我们可以发现一下结论：<br>
+              1. 在18-47岁中的人数整体较少，而且在这个年龄段中男性的人数原高于女性，几乎是女性的2倍。<br>
+              2. 在48-67岁的人群中，人数明显增多并且男女呈现对等的趋势。<br>
+              3. 在69岁之后人数出现明显的下滑，这可能和老年人对于网络的宣传不感兴趣有关。<br>
+            </p>
+            <!-- Plot 2 -->
+            <h4>Completed Profile Income Distribution</h4>
+            <div id='chart2' class='chart'>
+              <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+              <script>
+                  var graphs = {{graph2json | safe}};
+                  Plotly.plot('chart2',graphs,{});
+              </script>
+            </div> 
+            <!--end plot-->
+            <br>
+            <p>
+              通过上图观察我们可以发现一下结论：<br>
+              1. 我们发现在30k-70k收入的区间中，男性的数量明显要多于女性。而且在50k-70k的收入人群中，完成订单的人数明显增多。<br>
+              2. 到了73k收入之后，我们发现人数呈现下降趋势，并且女性的消费人数均高于男性。<br>
+              3. 在低收入到中收入的人群中，男性的人数都高于女性，而在高收入人群中，女性的人数均高于男性。<br>
+            </p>
+            <!-- Plot 3 -->
+            <h4>Completed Profile Member Date Distribution</h4>
+            <div id='chart3' class='chart'>
+              <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+              <script>
+                  var graphs = {{graph3json | safe}};
+                  Plotly.plot('chart3',graphs,{});
+              </script>
+            </div>
+            <br>
+            <!--end plot-->
+            <p>
+              通过上图观察我们可以发现一下结论：<br>
+              1. 2016年-2018年的人数较多，2017人数明显增多。<br>
+            </p>
+            <!--task2-->
+            <h2 id="task2">Task2</h2>
+            <p>活跃用户定义：</p>
+            <ul>
+              <li>消息打开率（offer view/offer received） 在75%以上</li>
+              <li>核销率（offer complete/offer received）在50%以上</li>
+            </ul>
+            <p>
+
+            </p>
+            <!--plot 4-->
+            <h4>High Frequency Age Distribution</h4>
+            <div id='chart4' class='chart'>
+              <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+              <script>
+                  var graphs = {{graph4json | safe}};
+                  Plotly.plot('chart4',graphs,{});
+              </script>
+            </div> 
+            <br>
+            <!--end plot-->
+            
+            <!--plot 5-->
+            <h4>High Frequency Income Distribution</h4>
+            <div id='chart5' class='chart'>
+              <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+              <script>
+                  var graphs = {{graph5json | safe}};
+                  Plotly.plot('chart5',graphs,{});
+              </script>
+            </div> 
+            <br>
+            <!--end plot-->
+
+            <!--plot 6-->
+            <h4>High Frequency Member Date Distribution</h4>
+            <div id='chart6' class='chart'>
+              <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+              <script>
+                  var graphs = {{graph6json | safe}};
+                  Plotly.plot('chart6',graphs,{});
+              </script>
+            </div> 
+            <br>
+            <!--end plot-->
+          
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+  
+  </div>
+  <!-- /#wrapper -->
+</body>
+
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+<script src="https://gist.githubusercontent.com/thomasrene/de5ac2a453f366e1786c1e2701caf6fc/raw/717e2ddc713af1d151f5ccd2d50c771d851ff262/jquery-2.1.3.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="../static/js/sidebar.js"></script>

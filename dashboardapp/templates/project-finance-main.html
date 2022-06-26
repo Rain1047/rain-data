@@ -1,0 +1,165 @@
+<html>
+    <head>
+        <title>Finance Main</title>
+        <link href="../static/img/R3" rel="icon">
+    </head>
+
+    <body>
+        {% extends 'layout.html' %}
+        {% block content %}
+        <!-- header -->
+        <header class="navbar-fixed-top">
+            <nav>
+                <ul>
+                    <li><a href="/"><i class="fa fa-fw fa-home"></i></a></li>
+                    <li><a href="#home-finance">front</a></li>
+                    <li><a href="#projects">dashboard</a></li>
+                    <li><a href="#finance-index">index</a></li>
+                </ul>
+            </nav>
+          </header>
+        <!-- ./header -->
+
+        <!-- home -->
+        <div class="section" id="home-finance" data-stellar-background-ratio="0.5">
+            <div class="container">
+                <div class="disply-table">
+                    <div class="table-cell" data-aos="fade-up" data-aos-delay="0">
+                        <h4>Rain Dalio</h4>
+                        <h1>Finance Dashboard&<br/> History Data </h1>
+                        <br/>
+                        <br/>
+                        <div style="position:relative, right:40px" data-aos="fade-up"> 
+                        </div>
+                    </div>    
+                </div>
+            </div>
+        </div>
+        <!-- ./home -->
+
+ <!-- projects -->
+ <div class="section" id="projects">`        `
+    <div class="container">
+        <div class="col-md-12">
+            <h1 class="size-50 text-center">Finance Dashboard</h1> 
+        </div>
+        <!-- main container -->
+        <div class="main-container portfolio-inner clearfix">
+            <!-- portfolio div -->
+            <div class="portfolio-div">
+                <div class="portfolio">
+                    <!-- portfolio_filter -->
+                    <div class="categories-grid wow fadeInLeft">
+                        <nav class="categories">
+                            <ul class="portfolio_filter" id="portfolio01">
+                                <li><a href="" class="active" data-filter="*">All</a></li>
+                                <li><a href="" data-filter=".price">price</a></li>
+                                <li><a href="" data-filter=".rate">rate</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <!-- portfolio_filter -->
+                    
+                     <!-- portfolio_container -->
+                      <div class="no-padding portfolio_container clearfix" data-aos="fade-up">
+                        <!-- word list-->
+                            <!-- single work 01-->
+                            <div class="col-md-6 col-sm-6 price mmth">
+                                <div id='chart_sp500_price' class='chart'>
+                                <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+                                <script>
+                                    var graphs = {{graphjson_sp500 | safe}};
+                                    Plotly.plot('chart_sp500_price',graphs,{});
+                                </script>
+                                </div>
+                            </div>
+
+                            <!-- end single work-->
+
+                            <div class="col-md-6 col-sm-6 price mmth">
+                                <div id='chart_cpi_price' class='chart'>
+                                <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+                                <script>
+                                    var graphs = {{graphjson_cpi | safe}};
+                                    Plotly.plot('chart_cpi_price',graphs,{});
+                                </script>
+                                </div>
+                            </div>
+                            <br>
+                            <!-- end single work-->
+
+                            <div class="col-md-6 col-sm-6 rate mmth">
+                                <div id='chart_inflation_rate' class='chart'>
+                                <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+                                <script>
+                                    var graphs = {{graphjson_inflation_rate | safe}};
+                                    Plotly.plot('chart_inflation_rate',graphs,{});
+                                </script>
+                                </div>
+                            </div>
+
+                            <!-- end single work-->
+
+                  </div>
+                  <!-- end portfolio_container -->
+                </div>
+                <!-- portfolio -->
+            </div>
+            <!-- end portfolio div -->
+        </div>
+        <!-- end main container -->
+    </div>
+
+    <div class="container" id="finance-index">
+        <div class="col-md-12">
+            <h1 class="size-50 text-center">Finance Index</h1> 
+        </div>
+        <!-- main container -->
+        <div class="main-container portfolio-inner clearfix">
+            <!-- portfolio div -->
+            <div class="portfolio-div">
+                <div class="portfolio">
+                    <!-- portfolio_filter -->
+                    <div class="categories-grid wow fadeInLeft">
+                        <nav class="categories">
+                            <ul class="portfolio_filter" id="portfolio02">
+                                <li><a href="" class="active" data-filter="*">All</a></li>
+                                <li><a href="" data-filter=".mmth">mmth</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <!-- portfolio_filter -->
+                    
+                     <!-- portfolio_container -->
+                      <div class="no-padding portfolio_container clearfix" data-aos="fade-up">
+                        <!-- word list-->
+                            <!-- single work 01-->
+                            <div class="col-md-6 col-sm-6 price rate mmth">
+                                <div id='chart_mmth' class='chart'>
+                                <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+                                <script>
+                                    var graphs = {{graphjson_mmth | safe}};
+                                    Plotly.plot('chart_mmth',graphs,{});
+                                </script>
+                                </div>
+                            </div>
+                        <!-- end single work-->
+                  </div>
+                  <!-- end portfolio_container -->
+                </div>
+                <!-- portfolio -->
+            </div>
+            <!-- end portfolio div -->
+        </div>
+        <!-- end main container -->
+    </div>
+</div>
+<!-- ./projects -->
+
+       
+            
+    {% endblock %}
+    </bdoy>
+</html>
+
+
