@@ -280,7 +280,7 @@ a.active {
 ==================================================*/
 
 #home {
-    background: url('https://s1.328888.xyz/2022/06/08/zO5V2.png');
+    background: url("../img/bg.png");
     background-size: cover;
     height: 100vh;
 }
