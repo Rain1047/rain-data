@@ -71,6 +71,14 @@ def get_finance():
     graphjson_inflation_rate = graph3json,
     graphjson_mmth = graphJSON_mmth)
 
+@app.route('/finance-main/finance-article/score-system-review')
+def get_article_1():
+  return render_template('score_system_review_1.html')
+
+@app.route('/finance-main/finance-article/pyechart-demo')
+def get_pyechart_demo():
+  return render_template('sz.300059.html')
+
 #----------------------#
 # crypto project
 #----------------------#
